@@ -1,5 +1,5 @@
 {
-  "name": "@dau/branding",
+  "name": "@dau-dev/branding",
   "version": "0.1.0",
   "description": "dau brand identity, design tokens, theme system, and reusable Svelte components.",
   "license": "Apache-2.0",
