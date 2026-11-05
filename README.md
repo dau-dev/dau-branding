@@ -1,4 +1,4 @@
-# @dau/branding
+# @dau-dev/branding
 
 dau brand identity, design tokens, theme system, and reusable Svelte components.
 
@@ -11,7 +11,7 @@ The package is not published to npm. Sibling apps link it locally:
 ```jsonc
 // website/package.json
 "devDependencies": {
-  "@dau/branding": "file:../dau-branding"
+  "@dau-dev/branding": "file:../dau-branding"
 }
 ```
 
@@ -20,17 +20,17 @@ Run `pnpm build` here first so `dist/` exists.
 Import the fonts and tokens once at the application root:
 
 ```css
-@import '@dau/branding/fonts.css';
-@import '@dau/branding/tokens.css';
+@import '@dau-dev/branding/fonts.css';
+@import '@dau-dev/branding/tokens.css';
 ```
 
 Logo files (SVG and PNG, dark and light mode) ship under
-`@dau/branding/assets/logo/`; see BRAND.md for the list. The favicon is
-`@dau/branding/assets/favicon.svg`.
+`@dau-dev/branding/assets/logo/`; see BRAND.md for the list. The favicon is
+`@dau-dev/branding/assets/favicon.svg`.
 
 ```svelte
 <script lang="ts">
-  import { BrandMark, ThemeToggle } from '@dau/branding';
+  import { BrandMark, ThemeToggle } from '@dau-dev/branding';
 </script>
 
 <BrandMark />

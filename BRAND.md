@@ -1,7 +1,7 @@
 # dau Brand Guide
 
 Canonical source for the dau identity. The tokens and components in
-`@dau/branding` are the machine-readable version of this page; consume them
+`@dau-dev/branding` are the machine-readable version of this page; consume them
 rather than re-implementing.
 
 ## Identity
@@ -97,7 +97,7 @@ pages.
 | Text    | Hanken Grotesk | 300, 400, 600, 700, 800 | Headlines, body, UI                  |
 | Utility | Fragment Mono  | 400                     | Labels, tables, register names, code |
 
-Both are self-hosted through `@dau/branding/fonts.css` so pages make no
+Both are self-hosted through `@dau-dev/branding/fonts.css` so pages make no
 requests to third-party font hosts.
 
 Weight carries the same split as the mark: light 300 for what software does,
