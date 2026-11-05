@@ -1,0 +1,4 @@
+/* Self-hosted brand faces. Import once beside tokens.css. Serving them from the
+ * consuming site keeps visitors' requests off third-party font hosts. */
+@import '@fontsource-variable/hanken-grotesk';
+@import '@fontsource/fragment-mono';

@@ -1,43 +1,88 @@
 /* Design tokens for dau.
  *
- * These are deliberately neutral placeholders, not a finished palette. Replace
- * the values with the brand's own before shipping; the names are the contract
- * consumers depend on, so prefer changing values over renaming.
+ * Two values carry the brand: shadow (dark grey) and lit (off-white). Every
+ * other color is a step between them. The names are the contract consumers
+ * depend on; prefer changing values over renaming.
  *
- * Names describe the role a color plays, not a material it imitates.
+ * `.dau-lit` and `.dau-shadow` pin a surface to one side regardless of the
+ * page theme. `.dau-inverse` (below) flips whichever side the page is on.
  */
 
-:root {
-  /* surfaces */
-  --dau-bg: #ffffff;
-  --dau-bg-raised: #f6f6f6;
-
-  /* text */
-  --dau-fg: #171717;
-  --dau-fg-muted: #5c5c5c;
-
-  /* structure */
-  --dau-border: #e0e0e0;
-
-  /* Focus is a functional requirement, not decoration. It needs at least 3:1
-   * against both surfaces above; check it whenever the palette changes. */
-  --dau-focus: #1a56c4;
-
-  --dau-font-sans: ui-sans-serif, system-ui, sans-serif;
-  --dau-font-mono: ui-monospace, monospace;
+:root,
+.dau-lit {
+  --dau-bg: #eeede9;
+  --dau-bg-raised: #e4e3de;
+  --dau-fg: #202021;
+  --dau-fg-muted: #5d5c58;
+  --dau-border: #cfcdc7;
+  --dau-focus: #202021;
 
   color-scheme: light;
 }
 
-:root[data-theme='dark'] {
-  --dau-bg: #121212;
-  --dau-bg-raised: #1c1c1c;
-  --dau-fg: #ededed;
-  --dau-fg-muted: #a6a6a6;
-  --dau-border: #333333;
-  --dau-focus: #8ab4ff;
+:root[data-theme='dark'],
+.dau-shadow {
+  --dau-bg: #202021;
+  --dau-bg-raised: #28282a;
+  --dau-fg: #eeede9;
+  --dau-fg-muted: #9b9a96;
+  --dau-border: #3a3a3c;
+  --dau-focus: #eeede9;
 
   color-scheme: dark;
+}
+
+/* An explicit surface must win over the page theme it sits inside. */
+:root[data-theme='dark'] .dau-lit {
+  --dau-bg: #eeede9;
+  --dau-bg-raised: #e4e3de;
+  --dau-fg: #202021;
+  --dau-fg-muted: #5d5c58;
+  --dau-border: #cfcdc7;
+  --dau-focus: #202021;
+
+  color-scheme: light;
+}
+
+/* `.dau-inverse` is the opposite of the page theme: shadow on a lit page,
+ * lit on a shadow page. */
+.dau-inverse {
+  --dau-bg: #202021;
+  --dau-bg-raised: #28282a;
+  --dau-fg: #eeede9;
+  --dau-fg-muted: #9b9a96;
+  --dau-border: #3a3a3c;
+  --dau-focus: #eeede9;
+
+  color-scheme: dark;
+}
+
+:root[data-theme='dark'] .dau-inverse {
+  --dau-bg: #eeede9;
+  --dau-bg-raised: #e4e3de;
+  --dau-fg: #202021;
+  --dau-fg-muted: #5d5c58;
+  --dau-border: #cfcdc7;
+  --dau-focus: #202021;
+
+  color-scheme: light;
+}
+
+:root {
+  --dau-shadow: #202021;
+  --dau-lit: #eeede9;
+
+  --dau-font-sans: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --dau-font-mono: 'Fragment Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --dau-radius: 2px;
+}
+
+.dau-lit,
+.dau-shadow,
+.dau-inverse {
+  color: var(--dau-fg);
+  background: var(--dau-bg);
 }
 
 :root {
@@ -51,7 +96,8 @@ body {
 }
 
 button:focus-visible,
-a:focus-visible {
+a:focus-visible,
+summary:focus-visible {
   outline: 2px solid var(--dau-focus);
   outline-offset: 4px;
 }

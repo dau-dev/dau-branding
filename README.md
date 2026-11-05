@@ -6,15 +6,27 @@ See [`BRAND.md`](./BRAND.md) for the canonical brand guide.
 
 ## Install
 
-```bash
-pnpm add @dau/branding
+The package is not published to npm. Sibling apps link it locally:
+
+```jsonc
+// website/package.json
+"devDependencies": {
+  "@dau/branding": "file:../dau-branding"
+}
 ```
 
-Import design tokens once at the application root:
+Run `pnpm build` here first so `dist/` exists.
+
+Import the fonts and tokens once at the application root:
 
 ```css
+@import '@dau/branding/fonts.css';
 @import '@dau/branding/tokens.css';
 ```
+
+Logo files (SVG and PNG, dark and light mode) ship under
+`@dau/branding/assets/logo/`; see BRAND.md for the list. The favicon is
+`@dau/branding/assets/favicon.svg`.
 
 ```svelte
 <script lang="ts">
@@ -24,6 +36,9 @@ Import design tokens once at the application root:
 <BrandMark />
 <ThemeToggle />
 ```
+
+Components: `BrandMark`, `Button`, `CookieNotice`, `SpecTable`, `Split`,
+`ThemeToggle`. See BRAND.md for when to use each.
 
 ## Develop
 
