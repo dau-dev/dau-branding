@@ -1,0 +1,12 @@
+# Changes here will be overwritten by Copier
+_commit: 53e3805
+_src_path: https://github.com/python-project-templates/base.git
+add_extension: uitk-svelte
+brand_name: dau
+css_prefix: dau
+github: dau-dev
+package_name: '@dau/branding'
+project_description: dau brand identity, design tokens, theme system, and reusable
+    Svelte components.
+project_name: dau-branding
+
